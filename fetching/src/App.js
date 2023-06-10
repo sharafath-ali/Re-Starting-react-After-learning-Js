@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import Cleanup from './Cleanup';
 
 function App() {
+  
   const [count, setcount] = useState({})
   const [name,setname]=useState('')
+  const [bool,setbool]=useState(false)
   const name1=()=>{
   fetch("https://jsonplaceholder.typicode.com/users/3")
   .then((res)=>res.json()).then(data=> setcount(data)) ///.then(data=> setcount(data.username));
@@ -28,6 +31,10 @@ function App() {
   useEffect(() => {
     console.log(' at every update + first render')
     setname('aysha')
+    //let a=setInterval(()=>{
+      //console.log('this is setinterval')
+    //},1000)
+    //return ()=>{clearInterval(a)}
   })
   
   useEffect(() => {
@@ -39,6 +46,9 @@ function App() {
       <button onClick={name1}>name1</button>
       {name}
       <button onClick={name2}>name2</button>
+      {bool && (<Cleanup/>)}
+      
+      
     </div>
   );
 }
