@@ -7,9 +7,17 @@ function Td({edit,datas,index,setdatas,setedit,e}) {
         <>
           <input value={e.name}
             onChange={(ev) => {
-              const updatedDatas = [...datas];
-              updatedDatas[index].name = ev.target.value;
-              setdatas(updatedDatas);
+            //   const updatedDatas = [...datas];
+            //   updatedDatas[index].name = ev.target.value;
+            // setdatas(updatedDatas);
+            setdatas((prevValue) => {
+                const updatedArray = [...prevValue];
+                const updatedObject = { ...updatedArray[index] };
+               const updatedObjectva ={...updatedObject,name: ev.target.value}
+                updatedArray[index] = updatedObjectva;
+                return updatedArray;
+              });
+              
             }}
           />
           <button
