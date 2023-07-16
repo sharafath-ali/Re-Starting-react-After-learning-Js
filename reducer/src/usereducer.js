@@ -7,7 +7,9 @@ function reducerCallback (state,action) {
 //    return action.payload
 //   }
   switch (action.type) {
-    case "change_state":
+    case "change_state1":
+      return action.payload;
+    case "change_state2":
       return action.payload;
     default:
       return state;
@@ -17,7 +19,8 @@ function Usereducer() {
   return (
     <>
       <div>{state}</div>
-      <button onClick={()=>dispatch({type:'change_state',payload:'sharafath is just wow'})}>click me buddy</button>
+      <button onClick={()=>dispatch({type:'change_state1',payload:'sharafath is just wow'})}>click me buddy</button>
+      <button onClick={()=>dispatch({type:'change_state2',payload:'sharafath is just great'})}>click me buddy</button>
     </>
   );
 }
