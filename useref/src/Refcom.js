@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react'
+import React, { useRef,useState , useMemo } from 'react'
 
 function Refcom() {
     const [Name, setName] = useState([])
@@ -8,6 +8,7 @@ function Refcom() {
         setName((prevname)=>[...prevname,Input.current.value])
         }
     }
+   const sortedName=useMemo(() => {console.log(Name); return Name.sort();}, [Name])
   return (
     <div>
         <h1>enter your favourite movie</h1>
@@ -15,7 +16,7 @@ function Refcom() {
         <button onClick={handle}>click here</button>
         <ol>
             {
-                Name && Name.sort().map((e)=><li>{e}</li>)
+                Name && sortedName.map((e,index)=><li key={index}>{e}</li>)
             }
         </ol>
     </div>
