@@ -16,7 +16,7 @@ function Refcom() {
         <button onClick={handle}>click here</button>
         <ol>
             {
-                Name && sortedName.map((e,index)=><li key={index}>{e}</li>)
+               sortedName && sortedName.map((e,index)=><li key={index}>{e}</li>)
             }
         </ol>
     </div>
